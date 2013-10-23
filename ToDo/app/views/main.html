@@ -1,0 +1,17 @@
+<section>
+	<header id="header">
+		<h1>Todos</h1>
+		<form id="todo-form" ng-submit="addToDo()">
+			<input id="new-todo" ng-model="newTodo">
+		</form>
+	</header>
+	<section id="main">
+		<input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
+		<label for="toggle-all">Mark all as complete</label>
+		<ul id="todo-list">
+			<li ng-repeat="todo in todos">
+				<label>{{todo.title}}</label>
+			</li>
+		</ul>
+	</section>
+</section>
