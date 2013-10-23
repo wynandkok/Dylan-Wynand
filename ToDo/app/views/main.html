@@ -9,9 +9,16 @@
 		<input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
 		<label for="toggle-all">Mark all as complete</label>
 		<ul id="todo-list">
-			<li ng-repeat="todo in todos">
-				<label>{{todo.title}}</label>
+			<li ng-repeat="todo in todos" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+				<div class="view">
+					<input class="toggle" type="checkbox" ng-model="todo.completed">
+					<label>{{todo.title}}</label>
+					<button class="destroy" ng-click="removeToDo(todo)"</button>
+				</div>
 			</li>
 		</ul>
 	</section>
+	<footer id="footer" ng-show="todos.length" ng-cloak>
+		<span id="todo-count"><strong>{{remainingCount}}</strong></span>
+		<button id="clear-completed" ng-click="clearCompletedTodos()" ng-show="completedCount">Clear</button>
 </section>
