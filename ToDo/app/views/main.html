@@ -5,7 +5,7 @@
 			<input id="new-todo" ng-model="newTodo">
 		</form>
 	</header>
-	<section id="main">
+	<section id="main" ng-show="todos.length" ng-cloak>
 		<input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
 		<label for="toggle-all">Mark all as complete</label>
 		<ul id="todo-list">
@@ -21,4 +21,5 @@
 	<footer id="footer" ng-show="todos.length" ng-cloak>
 		<span id="todo-count"><strong>{{remainingCount}}</strong></span>
 		<button id="clear-completed" ng-click="clearCompletedTodos()" ng-show="completedCount">Clear</button>
+	</footer>
 </section>
